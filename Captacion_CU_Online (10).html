@@ -18,6 +18,7 @@
     --accent-academy:#d9770a;
     --accent-inspect:#7c3aed;
     --accent-verify:#db2777;
+    --accent-lab:#15803d;
     --success:#158a4a;
     --success-bg:#e7f6ed;
     --danger:#c81e37;
@@ -33,7 +34,7 @@
       --bg:#081319; --surface:#0f1e26; --surface-2:#132a34; --border:#204049;
       --text:#e8f3f5; --text-muted:#93aab0;
       --brand-1:#45b8f0; --brand-2:#79e4f5;
-      --accent-cert:#2ecfe8; --accent-academy:#f5a531; --accent-inspect:#ab92fb; --accent-verify:#f77bb3;
+      --accent-cert:#2ecfe8; --accent-academy:#f5a531; --accent-inspect:#ab92fb; --accent-verify:#f77bb3; --accent-lab:#4ade80;
       --success:#3ddb92; --success-bg:#0f2c20; --danger:#ff8a95; --danger-bg:#33161b;
       --focus:#79e4f5;
       --shadow:0 1px 2px rgba(0,0,0,.5), 0 14px 34px -16px rgba(0,0,0,.7);
@@ -44,7 +45,7 @@
     --bg:#081319; --surface:#0f1e26; --surface-2:#132a34; --border:#204049;
     --text:#e8f3f5; --text-muted:#93aab0;
     --brand-1:#45b8f0; --brand-2:#79e4f5;
-    --accent-cert:#2ecfe8; --accent-academy:#f5a531; --accent-inspect:#ab92fb; --accent-verify:#f77bb3;
+    --accent-cert:#2ecfe8; --accent-academy:#f5a531; --accent-inspect:#ab92fb; --accent-verify:#f77bb3; --accent-lab:#4ade80;
     --success:#3ddb92; --success-bg:#0f2c20; --danger:#ff8a95; --danger-bg:#33161b;
     --focus:#79e4f5;
     --shadow:0 1px 2px rgba(0,0,0,.5), 0 14px 34px -16px rgba(0,0,0,.7);
@@ -364,7 +365,7 @@
         </div>
 
         <div class="field">
-          <label for="precioAprox">Precio aproximado</label>
+          <label for="precioAprox">Monto aproximado de negocio $$</label>
           <input type="text" id="precioAprox" placeholder="Ej: USD 500 o S/ 1,500" inputmode="decimal">
         </div>
 
@@ -485,14 +486,14 @@ break;case"<bookViews":;case"<bookViews>":;case"</bookViews>":break;case"<workbo
   var ICONS = {
     Certificaciones:'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="8" r="5.4"/><polyline points="7.4,8.2 9,9.8 12.6,6"/><path d="M7 12.6 5.6 17.5 10 15.5 14.4 17.5 13 12.6"/></svg>',
     Academy:'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 4.5c2.2-1 5-1 7.5.6 2.5-1.6 5.3-1.6 7.5-.6v10c-2.2-1-5-1-7.5.6-2.5-1.6-5.3-1.6-7.5-.6z"/><line x1="10" y1="5.1" x2="10" y2="15.1"/></svg>',
-    Inspecciones:'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.6" cy="8.6" r="5.1"/><line x1="12.4" y1="12.4" x2="17" y2="17"/></svg>',
-    Verificaciones:'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.2 16.8 4.6v5.1c0 4.4-2.9 7.1-6.8 8.1-3.9-1-6.8-3.7-6.8-8.1V4.6z"/><polyline points="7,10 9.2,12.2 13.2,7.6"/></svg>'
+    "Inspecciones y Verificaciones":'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.2 16.8 4.6v5.1c0 4.4-2.9 7.1-6.8 8.1-3.9-1-6.8-3.7-6.8-8.1V4.6z"/><polyline points="7,10 9.2,12.2 13.2,7.6"/></svg>',
+    Laboratorio:'<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2.5h4"/><path d="M8.7 2.5v4.8L4.3 15c-.6 1.1.2 2.5 1.5 2.5h8.4c1.3 0 2.1-1.4 1.5-2.5l-4.4-7.7V2.5"/><line x1="6.3" y1="11.5" x2="13.7" y2="11.5"/></svg>'
   };
   var SERVICES = [
     {value:"Certificaciones", cvar:"--accent-cert"},
     {value:"Academy", cvar:"--accent-academy"},
-    {value:"Inspecciones", cvar:"--accent-inspect"},
-    {value:"Verificaciones", cvar:"--accent-verify"}
+    {value:"Inspecciones y Verificaciones", cvar:"--accent-verify"},
+    {value:"Laboratorio", cvar:"--accent-lab"}
   ];
 
   var STORAGE_KEY = "cu_prospectos_v1";
@@ -1105,7 +1106,7 @@ break;case"<bookViews":;case"<bookViews>":;case"</bookViews>":break;case"<workbo
     {id:"telefono", label:"Teléfono", type:"text", required:false, hint:"Decí el número de teléfono."},
     {id:"correo", label:"Correo", type:"text", required:false, hint:"Deletreá el correo si hace falta — decí «arroba» y «punto»."},
     {id:"canal", label:"¿Cómo lo contactaron?", type:"choice", required:false, options: CANALES.filter(function(c){ return c !== "Otro"; }), hint:"Por ejemplo: feria, referido, llamada telefónica…"},
-    {id:"servicio", label:"Servicio(s) de interés", type:"multichoice", required:true, options: SERVICES.map(function(s){ return s.value; }), hint:"Decí uno o más: Certificaciones, Academy, Inspecciones o Verificaciones."}
+    {id:"servicio", label:"Servicio(s) de interés", type:"multichoice", required:true, options: SERVICES.map(function(s){ return s.value; }), hint:"Decí uno o más: Certificaciones, Academy, Inspecciones y Verificaciones, o Laboratorio."}
   ].concat(SERVICES.map(function(s){
     return {id:"norma_" + s.value, servicio: s.value, label:"Norma(s) — " + s.value, type:"multichoice",
       required: s.value === "Certificaciones",
@@ -1113,7 +1114,7 @@ break;case"<bookViews":;case"<bookViews>":;case"</bookViews>":break;case"<workbo
       condition: (function(sv){ return function(){ return selectedServicios.indexOf(sv) !== -1; }; })(s.value)};
   })).concat([
     {id:"ejecutivo", label:"Ejecutivo a cargo", type:"choice", required:true, options: EJECUTIVOS, hint:"Decí el nombre del ejecutivo."},
-    {id:"precioAprox", label:"Precio aproximado", type:"text", required:false, hint:"Decí el precio aproximado, por ejemplo 500 dólares."},
+    {id:"precioAprox", label:"Monto aproximado de negocio", type:"text", required:false, hint:"Decí el monto aproximado del negocio, por ejemplo 500 dólares."},
     {id:"notas", label:"Notas", type:"text", required:false, multiline:true, hint:"Contame el contexto de la visita o los próximos pasos."}
   ]);
 
@@ -1513,7 +1514,7 @@ break;case"<bookViews":;case"<bookViews>":;case"</bookViews>":break;case"<workbo
       if(r.canal) metaBits.push(["Contacto vía", r.canal, false]);
       metaBits.push(["Ejecutivo", r.ejecutivo || "—", false]);
       if(norma) metaBits.push(["Norma(s)", norma, false]);
-      if(r.precioAprox) metaBits.push(["Precio aprox.", r.precioAprox, false]);
+      if(r.precioAprox) metaBits.push(["Monto aprox.", r.precioAprox, false]);
 
       var metaHtml = metaBits.map(function(m){
         return '<div>'+m[0]+': <b class="'+(m[2]?"mono-v":"")+'">'+escapeHtml(m[1])+'</b></div>';
@@ -1733,7 +1734,7 @@ break;case"<bookViews":;case"<bookViews>":;case"</bookViews>":break;case"<workbo
       showToast("No se pudo preparar el Excel.", true);
       return;
     }
-    var header = ["Fecha","Nombre de contacto","Empresa","Ubicación","Teléfono","Correo","Contacto vía","Servicio","Norma(s)","Ejecutivo","Precio aproximado","Notas"];
+    var header = ["Fecha","Nombre de contacto","Empresa","Ubicación","Teléfono","Correo","Contacto vía","Servicio","Norma(s)","Ejecutivo","Monto aproximado de negocio","Notas"];
     var rows = records.slice().sort(function(a,b){ return (a.creadoEn||"") < (b.creadoEn||"") ? -1 : 1; }).map(function(r){
       var serviciosArr = serviciosOf(r);
       return [fmtDate(r.creadoEn), r.nombre||"", r.empresa||"", r.ubicacion||"", r.telefono||"", r.correo||"", r.canal||"", serviciosArr.join("; "), normasTextoOf(r), r.ejecutivo||"", r.precioAprox||"", r.notas||""];
