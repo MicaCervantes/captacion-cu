@@ -2,7 +2,7 @@
   "name": "Captación CU · Offline",
   "short_name": "Captación CU",
   "start_url": "./Captacion_CU_Offline.html",
-  "scope": "./",
+  "scope": "./Captacion_CU_Offline.html",
   "display": "standalone",
   "background_color": "#0f1e26",
   "theme_color": "#475569",

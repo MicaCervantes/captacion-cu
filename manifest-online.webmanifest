@@ -2,7 +2,7 @@
   "name": "Captación CU · Online",
   "short_name": "Captación CU",
   "start_url": "./Captacion_CU_Online%20(10).html",
-  "scope": "./",
+  "scope": "./Captacion_CU_Online%20(10).html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#0e7fc4",
